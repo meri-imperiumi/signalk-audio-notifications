@@ -1,0 +1,35 @@
+{
+  "name": "@meri-imperiumi/signalk-audio-notifications",
+  "version": "1.0.0",
+  "description": "Provides audio form of selected notifications",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "signalk-node-server-plugin"
+  ],
+  "author": "cannonerd",
+  "licence": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "play-sound": "^1.1.3",
+    "say": "^0.16.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
