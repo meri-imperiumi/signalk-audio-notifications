@@ -74,5 +74,7 @@ module.exports = (app) => {
     say.speak('Audio notifications deactivated');
   };
 
+  plugin.schema = {};
+
   return plugin;
 };

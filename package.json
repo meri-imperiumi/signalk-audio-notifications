@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git://github.com/meri-imperiumi/signalk-audio-notifications.git"
   },
   "keywords": [
     "signalk-node-server-plugin"
