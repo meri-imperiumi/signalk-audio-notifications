@@ -16,8 +16,11 @@ module.exports = (app) => {
         reject(err);
         return;
       }
-      const duplicated = `${notification.value.message} Repeat: ${notification.value.message}`;
-      say.speak(duplicated, null, null, (sayErr) => {
+      let playable = notification.message;
+      if (notification.type === 'alarm') {
+        playable = `${notification.message} Repeat: ${notification.message}`;
+      }
+      say.speak(playable, null, null, (sayErr) => {
         if (sayErr) {
           reject(sayErr);
           return;
@@ -31,6 +34,13 @@ module.exports = (app) => {
     const audibleNotifications = [];
     notification.updates.forEach((update) => {
       update.values.forEach((value) => {
+        if (value.path === 'navigation.state') {
+          audibleNotifications.push({
+            message: `Vessel is now ${value.value}`,
+            type: 'message',
+          });
+          return;
+        }
         if (!value.value) {
           return;
         }
@@ -40,7 +50,10 @@ module.exports = (app) => {
         if (!value.value.method || value.value.method.indexOf('sound') === -1) {
           return;
         }
-        audibleNotifications.push(value);
+        audibleNotifications.push({
+          message: value.value.message,
+          type: 'alarm',
+        });
       });
     });
     return Promise.all(audibleNotifications.map((notify) => playNotification(notify)));
@@ -51,10 +64,16 @@ module.exports = (app) => {
     app.debug('audio notifications started');
     const subscription = {
       context: 'vessels.self',
-      subscribe: [{
-        path: 'notifications.*',
-        policy: 'instant',
-      }],
+      subscribe: [
+        {
+          path: 'notifications.*',
+          policy: 'instant',
+        },
+        {
+          path: 'navigation.state',
+          policy: 'instant',
+        },
+      ],
     };
     app.subscriptionmanager.subscribe(
       subscription,
