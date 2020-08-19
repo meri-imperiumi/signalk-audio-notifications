@@ -1,3 +1,12 @@
 language: node_js
 node_js:
 - lts/*
+deploy:
+  provider: npm
+  email: henri.bergius@iki.fi
+  api_key:
+    secure: ZRxJd0dbZS0SmwJOavRW1BjcGV6M3Dod0Ous7C9h365OJ0gfAUvgAoIJovBEvilmr8oPSJJNNwXa4QEqFlJH+gK3NCL1IY16zfAaKI+o0A2CYCI4KDGc049fWVrWFGMmja0E5CKUOaHboXeiWYmwBUlKH/beAfKzYwDjsf1a6wbFg4RSiooQo6fmw4AkMa8TxkmdTA3/1NrWNHm2epGUMvw5sgUMRZ2CFOELoGSdXmjtzqMVFqxQiP2yodTmo++LgRq1QOhJP3cKdq83gmogjL8JNiduYEtyFOQNMXwaeLbJ2uWxjV/VyVI0Mr+5qpquBMlChnHrP0S94daRiAopfQHRe3ez/NFX1qXKtpcWL8oZ0ymsY+eaHzfwpMZKF0KM+54QZw9HD7ZwUhMQOvxl3ALMGx9g503hhzBptBEXaZFbQdIb2orTDpIDGW10c+FO3MfnrSU/s2+o1Ul7t+ADCIoIwY9TG91dXW5fcC/IQFyudscEdl5PDDP8EjvJA8nfiBPAPDzKt5B7qM2yGg97mY2WQPkaHnc9VSzHAYR8s7dwTE39iaq6r1i0nb3zA9C1CfvEgTjEc2zXitA49GwZ3rCAFqzrgz62Z3g4QOkjnXuXReK27r4HdxEC8G//l3rm93M4CLG7OBiFCmUTmThOymN+k6RqbUtR3eaStkMWchY=
+  on:
+    tags: true
+    repo: meri-imperiumi/signalk-audio-notifications
+  skip_cleanup: 'true'
