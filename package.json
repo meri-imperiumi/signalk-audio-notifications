@@ -1,6 +1,6 @@
 {
   "name": "@meri-imperiumi/signalk-audio-notifications",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Provides audio form of selected notifications",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,8 @@
     "url": "git://github.com/meri-imperiumi/signalk-audio-notifications.git"
   },
   "keywords": [
-    "signalk-node-server-plugin"
+    "signalk-node-server-plugin",
+    "signalk-category-notifications"
   ],
   "author": "Henri Bergius <henri.bergius@iki.fi> and Cannonerd",
   "licence": "MIT",
