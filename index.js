@@ -9,6 +9,8 @@ module.exports = (app) => {
   plugin.name = 'signalk-audio-notifications';
   plugin.description = 'Provides SignalK audio notifications';
 
+  let lastState = null;
+
   const playNotification = (notification) => new Promise((resolve, reject) => {
     const notificationFile = path.resolve(__dirname, './assets/notification.mp3');
     player.play(notificationFile, (err) => {
@@ -34,11 +36,12 @@ module.exports = (app) => {
     const audibleNotifications = [];
     notification.updates.forEach((update) => {
       update.values.forEach((value) => {
-        if (value.path === 'navigation.state') {
+        if (value.path === 'navigation.state' && value.value !== lastState) {
           audibleNotifications.push({
             message: `Vessel is now ${value.value}`,
             type: 'message',
           });
+          lastState = value.value;
           return;
         }
         if (!value.value) {
