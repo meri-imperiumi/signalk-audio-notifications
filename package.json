@@ -1,6 +1,6 @@
 {
   "name": "@meri-imperiumi/signalk-audio-notifications",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Provides audio form of selected notifications",
   "main": "index.js",
   "scripts": {
