@@ -32,5 +32,9 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "signalk": {
+    "appIcon": "./doc/appicon.png",
+    "displayName": "Audio Notifications with Text-to-Speech"
   }
 }
