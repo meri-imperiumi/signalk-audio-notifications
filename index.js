@@ -86,7 +86,11 @@ module.exports = (app) => {
       },
       handleNotification,
     );
-    say.speak('Audio notifications activated');
+    try {
+      say.speak('Audio notifications activated');
+    } catch (e) {
+      app.error(e);
+    }
   };
 
   plugin.stop = () => {
