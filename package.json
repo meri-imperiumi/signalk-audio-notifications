@@ -34,7 +34,7 @@
     "access": "public"
   },
   "signalk": {
-    "appIcon": "./doc/appicon.png",
+    "appIcon": "./doc/appicon-256.png",
     "displayName": "Audio Notifications with Text-to-Speech"
   }
 }
